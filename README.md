@@ -2,4 +2,4 @@
 
 ### Screenshot
 
-![Demo](./demo.png)
+<img src="./demo.png" width="720" height="568" /> 
