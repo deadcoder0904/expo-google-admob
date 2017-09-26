@@ -2,4 +2,4 @@
 
 ### Screenshot
 
-<img src="./demo.png" width="568" height="720" /> 
+<img src="./demo.png" width="320" height="568" /> 
