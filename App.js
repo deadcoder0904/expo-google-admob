@@ -19,11 +19,11 @@ console.disableYellowBox = true;
 
 class App extends Component {
   _openInterstitial = () => {
-    AdMobInterstitial.requestAd(AdMobInterstitial.showAd);
+    AdMobInterstitial.requestAd(() => AdMobInterstitial.showAd());
   };
 
   _openRewarded = () => {
-    AdMobRewarded.requestAd(AdMobRewarded.showAd);
+    AdMobRewarded.requestAd(() => AdMobRewarded.showAd());
   };
 
   render() {
