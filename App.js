@@ -15,18 +15,18 @@ const REWARDED_ID = `ca-app-pub-1425926517331745/3923257478`;
 AdMobInterstitial.setAdUnitID(INTERSTITIAL_ID);
 AdMobInterstitial.setTestDeviceID("EMULATOR");
 AdMobRewarded.setAdUnitID(REWARDED_ID);
+AdMobRewarded.setTestDeviceID("EMULATOR");
 console.disableYellowBox = true;
 
 class App extends Component {
-  _openInterstitial = () => {
-    console.log(`_openInterstitial`);
-
-    AdMobInterstitial.requestAd(() => AdMobInterstitial.showAd());
+  _openInterstitial = async () => {
+    await AdMobInterstitial.requestAdAsync();
+    await AdMobInterstitial.showAdAsync();
   };
 
-  _openRewarded = () => {
-    console.log(`_openRewarded`);
-    AdMobRewarded.requestAd(() => AdMobRewarded.showAd());
+  _openRewarded = async () => {
+    await AdMobRewarded.requestAdAsync();
+    await AdMobRewarded.showAdAsync();
   };
 
   render() {
@@ -49,8 +49,8 @@ class App extends Component {
           <PublisherBanner
             bannerSize="banner"
             adUnitID={BANNER_ID}
-            didFailToReceiveAdWithError={this.bannerError}
-            admobDispatchAppEvent={this.adMobEvent}
+            onDidFailToReceiveAdWithError={this.bannerError}
+            onAdMobDispatchAppEvent={this.adMobEvent}
           />
           <View style={styles.btn}>
             <Text style={styles.title}>INTERSTITIAL AD</Text>
