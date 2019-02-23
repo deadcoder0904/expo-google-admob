@@ -1,0 +1,17 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true,
+    "**/dist/**": true
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#9317dbf6",
+    "titleBar.inactiveBackground": "#b44bf1cc",
+    "titleBar.activeForeground": "#ffffff"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
+}

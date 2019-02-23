@@ -1,11 +1,6 @@
+import { AdMobBanner, AdMobInterstitial, AdMobRewarded, PublisherBanner } from "expo";
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Button, ScrollView } from "react-native";
-import {
-  AdMobBanner,
-  AdMobInterstitial,
-  PublisherBanner,
-  AdMobRewarded
-} from "expo";
+import { Button, ScrollView, StyleSheet, Text, View } from "react-native";
 
 const ADUNITID = `ca-app-pub-1425926517331745~6816357585`;
 const BANNER_ID = `ca-app-pub-1425926517331745/4139536433`;
