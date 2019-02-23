@@ -5,7 +5,9 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
-.DS_Store# Logs
+.DS_Store
+
+# Logs
 logs
 *.log
 npm-debug.log*
