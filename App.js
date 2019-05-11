@@ -20,25 +20,37 @@ AdMobRewarded.setAdUnitID(REWARDED_ID)
 AdMobRewarded.setTestDeviceID('EMULATOR')
 
 class App extends Component {
+  state = {
+    disableInterstitialBtn: false,
+    disableRewardedBtn: false,
+  }
+
   _openInterstitial = async () => {
     try {
+      this.setState({ disableInterstitialBtn: true })
       await AdMobInterstitial.requestAdAsync()
       await AdMobInterstitial.showAdAsync()
     } catch (error) {
       console.error(error)
+    } finally {
+      this.setState({ disableInterstitialBtn: false })
     }
   }
 
   _openRewarded = async () => {
     try {
+      this.setState({ disableRewardedBtn: true })
       await AdMobRewarded.requestAdAsync()
       await AdMobRewarded.showAdAsync()
     } catch (error) {
       console.error(error)
+    } finally {
+      this.setState({ disableRewardedBtn: false })
     }
   }
 
   render() {
+    const { disableInterstitialBtn, disableRewardedBtn } = this.state
     return (
       <SafeAreaView style={{ margin: 20 }}>
         <Text h2>GOOGLE ADMOB DEMO</Text>
@@ -47,22 +59,23 @@ class App extends Component {
           component once.
         </Text>
         <Text h4>Banner Ad</Text>
-        <AdMobBanner
-          bannerSize="fullBanner"
-          adUnitID={BANNER_ID}
-          didFailToReceiveAdWithError={this.bannerError}
-        />
+        <AdMobBanner bannerSize="fullBanner" adUnitID={BANNER_ID} />
         <Text h4>Publisher Banner</Text>
-        <PublisherBanner
-          bannerSize="banner"
-          adUnitID={BANNER_ID}
-          onDidFailToReceiveAdWithError={this.bannerError}
-          onAdMobDispatchAppEvent={this.adMobEvent}
-        />
+        <PublisherBanner bannerSize="banner" adUnitID={BANNER_ID} />
         <Text h4>Interstitial Ad</Text>
-        <Button title="Open" type="outline" onPress={this._openInterstitial} />
+        <Button
+          title="Open"
+          type="outline"
+          disabled={disableInterstitialBtn}
+          onPress={this._openInterstitial}
+        />
         <Text h4>Rewarded Ad</Text>
-        <Button title="Open" type="outline" onPress={this._openRewarded} />
+        <Button
+          title="Open"
+          type="outline"
+          disabled={disableRewardedBtn}
+          onPress={this._openRewarded}
+        />
       </SafeAreaView>
     )
   }
