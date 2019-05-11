@@ -59,7 +59,7 @@ class App extends Component {
           component once.
         </Text>
         <Text h4>Banner Ad</Text>
-        <AdMobBanner bannerSize="fullBanner" adUnitID={BANNER_ID} />
+        <AdMobBanner bannerSize="mediumRectangle" adUnitID={BANNER_ID} />
         <Text h4>Publisher Banner</Text>
         <PublisherBanner bannerSize="banner" adUnitID={BANNER_ID} />
         <Text h4>Interstitial Ad</Text>
