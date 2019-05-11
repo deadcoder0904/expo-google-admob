@@ -12,6 +12,7 @@ const ADUNITID = `ca-app-pub-1425926517331745~6816357585`
 const BANNER_ID = `ca-app-pub-1425926517331745/4139536433`
 const INTERSTITIAL_ID = `ca-app-pub-1425926517331745/1141181467`
 const REWARDED_ID = `ca-app-pub-1425926517331745/3923257478`
+console.disableYellowBox = true
 
 AdMobInterstitial.setAdUnitID(INTERSTITIAL_ID)
 AdMobInterstitial.setTestDeviceID('EMULATOR')
@@ -20,13 +21,21 @@ AdMobRewarded.setTestDeviceID('EMULATOR')
 
 class App extends Component {
   _openInterstitial = async () => {
-    await AdMobInterstitial.requestAdAsync()
-    await AdMobInterstitial.showAdAsync()
+    try {
+      await AdMobInterstitial.requestAdAsync()
+      await AdMobInterstitial.showAdAsync()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   _openRewarded = async () => {
-    await AdMobRewarded.requestAdAsync()
-    await AdMobRewarded.showAdAsync()
+    try {
+      await AdMobRewarded.requestAdAsync()
+      await AdMobRewarded.showAdAsync()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   render() {
